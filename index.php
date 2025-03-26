@@ -56,5 +56,7 @@
             <button type="submit">Entrar</button>
         </p>
     </form>
+    <h3>Ainda não é cadastrado? registre-se aqui:</h3>
+    <p><a href="./templates/register.php">Registrar</a></p>
 </body> 
 </html>
