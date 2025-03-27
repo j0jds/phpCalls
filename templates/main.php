@@ -1,5 +1,5 @@
 <?php
-    include('../server/protection.php')
+    include('../server/protection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,16 @@
 <body>
     Boas vindas, <?php echo $_SESSION['nome'];?> 
 
-    <h3>Precisa de ajuda? Abra um chamado:</h3>
-    <p><a href="openCalls.php">Abrir Chamado</a></p>
+    <?php
+        if ($_SESSION['tipo'] == 'usuario') {
+            echo '<h3>Precisa de ajuda? Abra um chamado:</h3>';
+            echo '<p><a href="openCalls.php">Abrir Chamado</a></p>';
+        }
+        if ($_SESSION['tipo'] !== 'usuario') {
+            echo '<h3>Chamados disponíveis aqui:</h3>';
+            echo '<p><a href="./professionals.php">Chamados</a></p>';
+        }
+    ?>
 
     <p>
         <a href="../server/logout.php">Encerrar sessão</a>
