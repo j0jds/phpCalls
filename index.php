@@ -28,10 +28,13 @@
                 $_SESSION['nome'] = $usuario['nome'];
 
                 if ($tipo_conta === 'profissional') {
-                    $_SESSION['tipo'] = $usuario['tipo'];
+                    $_SESSION['tipo'] = $usuario['tipo'];  
+                } else {
+                    $_SESSION['tipo'] = 'usuario';  
                 }
 
                 header("Location: ./templates/main.php");
+                exit();  
             } else {
                 echo "Erro! Email, senha ou tipo incorretos.";
             }
