@@ -11,6 +11,9 @@
 <body>
     Boas vindas, <?php echo $_SESSION['nome'];?> 
 
+    <h3>Precisa de ajuda? Abra um chamado:</h3>
+    <p><a href="openCalls.php">Abrir Chamado</a></p>
+
     <p>
         <a href="../server/logout.php">Encerrar sessão</a>
     </p>
