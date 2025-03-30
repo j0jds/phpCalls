@@ -1,5 +1,6 @@
 <?php
     include('../config/database.php');
+    include('../includes/bootstrap.php');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nome = $mysqli -> real_escape_string($_POST['nome']);
@@ -7,15 +8,6 @@
         $senha = $mysqli -> real_escape_string($_POST['senha']);
         $tipo_conta = $_POST['tipo_conta'] ?? '';
 
-        if (empty($nome)) {
-            echo "O campo de nome é obrigatório!";
-        } else if (empty($email)) {
-            echo "O campo de email é obrigatório!";
-        } else if (empty($senha)) {
-            echo "O campo de senha é obrigatório!";
-        } else if ($tipo_conta === 'profissional' && empty($_POST['tipo_profissional'])) {
-            echo "Selecione um tipo de profissional!";
-        } else {
             if ($tipo_conta === 'usuario') {
                 $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
             } else {
@@ -35,7 +27,6 @@
             } else {
                 die("Erro ao cadastrar: " . $mysqli->error);
             }
-        }
     }
 ?>
 
@@ -45,48 +36,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <script>
-        function toggleTipoProfissional() {
-            var tipoConta = document.getElementById("tipo_conta").value;
-            var tipoProfissionalField = document.getElementById("tipo_profissional_field");
-            tipoProfissionalField.style.display = (tipoConta === "profissional") ? "block" : "none";
-        }
-    </script>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../js/index.js"></script>
 </head>
-<body>
-    <h1>Cadastro</h1>
-    <form action="" method="POST">
-        <p>
-            <label>Tipo de Conta:</label>
-            <select name="tipo_conta" id="tipo_conta" onchange="toggleTipoProfissional()" required>
-                <option value="usuario">Usuário</option>
-                <option value="profissional">Profissional</option>
-            </select>
-        </p>
-        <p>
-            <label>Nome</label>
-            <input type="text" name="nome" required>
-        </p>
-        <p>
-            <label>E-mail</label>
-            <input type="email" name="email" required>
-        </p>
-        <p>
-            <label>Senha</label>
-            <input type="password" name="senha" required>
-        </p>
-        <p id="tipo_profissional_field" style="display: none;">
-            <label>Tipo de Profissional:</label>
-            <select name="tipo_profissional">
-            <option value="tecnico">Técnico</option>
-                <option value="administrativo">Administrativo</option>
-                <option value="financeiro">Financeiro</option>
-            </select>
-        </p>
-        <p>
-            <button type="submit">Cadastrar</button>
-        </p>
-    </form>
-    <p><a href="../index.php">Já tem uma conta? Faça login</a></p>
+<body class="bg-light" style="overflow-x: hidden;">
+    <div class="container-fluid vh-100 p-0">
+        <div class="row g-0 h-100">
+            <!-- Carrossel -->
+            <div class="col-md-8 d-none d-md-block">
+                <div id="imageCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+                    <div class="carousel-inner h-100">
+                        <div class="carousel-item active h-100">
+                            <img src="../images/tecnico.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 1">
+                        </div>
+                        <div class="carousel-item h-100">
+                            <img src="../images/administrador.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 2">
+                        </div>
+                        <div class="carousel-item h-100">
+                            <img src="../images/contador.webp" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Formulário -->
+            <div class="col-md-4 d-flex align-items-center justify-content-center bg-white">
+                <div class="w-100 px-4 py-5" style="max-width: 400px;">
+                    <h2 class="text-center mb-4">Cadastro</h2>
+                    <form action="" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Conta:</label>
+                            <select name="tipo_conta" id="tipo_conta" class="form-select" onchange="toggleTipoProfissional()" required>
+                                <option value="usuario">Usuário</option>
+                                <option value="profissional">Profissional</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="nome" class="form-control" placeholder="Nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+                        </div>
+                        <div class="mb-3" id="tipo_profissional_field" style="display: none;">
+                            <label class="form-label">Tipo de Profissional:</label>
+                            <select name="tipo_profissional" class="form-select">
+                                <option value="tecnico">Técnico</option>
+                                <option value="administrativo">Administrativo</option>
+                                <option value="financeiro">Financeiro</option>
+                            </select>
+                        </div>
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="mb-2">Já tem uma conta?</p>
+                        <a href="../index.php" class="btn btn-outline-primary">Faça login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
