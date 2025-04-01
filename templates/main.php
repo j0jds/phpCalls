@@ -1,6 +1,6 @@
 <?php
-include('../server/protection.php');
-include('../includes/bootstrap.php')
+    include('../server/protection.php');
+    include('../includes/bootstrap.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
