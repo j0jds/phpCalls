@@ -12,52 +12,45 @@
     <script src="../js/index.js"></script>
 </head>
 <body>
-    <div class="dashboard-container">
-        <div class="container">
-            <div class="card welcome-card mb-4">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                    <h2 class="mb-0">Boas-vindas, <?php echo $_SESSION['nome'];?></h2>
-                    <a href="../server/logout.php" class="btn btn-danger">Encerrar sessão</a>
+</nav>
+ <!-- HEADER -->
+ <header class="navbar d-flex justify-content-between align-items-center p-3 bg-primary text-white">
+        <a href="https://www.php.net/" target="_blank"><img class="logo" src="../images/logo.png"></a>
+        <h2 class="mb-0">Boas-vindas, <?php echo $_SESSION['nome']; ?>.</h2>
+        <ul class="nav-links">
+            <li><a href="https://www.github.com/j0jds" target="_blank">Github</a></li>
+            <li><a href="https://www.linkedin.com/in/j0jds/" target="_blank">Linkedin</a></li>
+            <li><a href="https://github.com/j0jds/phpCalls" target="_blank">Saiba Mais</a></li>
+        </ul>
+        <a href="../server/logout.php" class="btn btn-danger">Encerrar sessão</a>
+    </header>
+   <!-- DASHBOARD CENTRAL -->
+   <div class="container d-flex flex-column align-items-center justify-content-center" style="height: 70vh;">
+        <?php if ($_SESSION['tipo'] == 'usuario'): ?>
+            <div class="row w-100 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow">
+                        <h3 class="card-title">Abrir Chamado</h3>
+                        <a href="openCalls.php" class="btn btn-primary btn-lg mt-3">Abrir</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow">
+                        <h3 class="card-title">Meus Chamados</h3>
+                        <a href="userCalls.php" class="btn btn-secondary btn-lg mt-3">Visualizar</a>
+                    </div>
                 </div>
             </div>
-
-            <?php if ($_SESSION['tipo'] == 'usuario'): ?>
-                <!-- Cards para Usuários -->
-                <div class="card action-card">
-                    <div class="card-body">
-                        <h3 class="card-title">Precisa de ajuda? Abra um chamado:</h3>
-                        <a href="openCalls.php" class="btn btn-primary btn-lg">Abrir Chamado</a>
+        <?php else: ?>
+            <div class="row w-100 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow">
+                        <h3 class="card-title">Chamados Disponíveis</h3>
+                        <a href="professionals.php" class="btn btn-primary btn-lg mt-3">Ver Chamados</a>
                     </div>
                 </div>
-
-                <div class="card action-card">
-                    <div class="card-body">
-                        <h3 class="card-title">Meus chamados:</h3>
-                        <a href="./userCalls.php" class="btn btn-outline-primary btn-lg">Visualizar meus chamados</a>
-                    </div>
-                </div>
-
-                <div class="card action-card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Suporte</h5>
-                        <p class="card-text">Em caso de dúvidas, entre em contato com nossa equipe:</p>
-                        <ul class="list-unstyled">
-                            <li><b>Email:</b> suporte@sistema.com</li>
-                            <li><b>Telefone:</b> (81) 9999-9999</li>
-                        </ul>
-                    </div>
-                </div>
-
-            <?php else: ?>
-                <!-- Card para Profissionais -->
-                <div class="card action-card">
-                    <div class="card-body">
-                        <h3 class="card-title">Chamados disponíveis:</h3>
-                        <a href="./professionals.php" class="btn btn-primary btn-lg">Ver Chamados</a>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
+            </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
