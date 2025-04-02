@@ -49,6 +49,12 @@
                         <a href="professionals.php" class="btn btn-primary btn-lg mt-3">Ver Chamados</a>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow">
+                        <h3 class="card-title">Em obras...</h3>
+                        <a href="" class="btn btn-secondary btn-lg mt-3">-</a>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
     </div>

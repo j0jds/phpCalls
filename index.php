@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <img src="./images/tecnico.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 1">
                         </div>
                         <div class="carousel-item h-100">
-                            <img src="./images/contador.webp" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 2">
+                            <img src="./images/contador.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 2">
                         </div>
                         <div class="carousel-item h-100">
                             <img src="./images/administrador.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Imagem 3">
