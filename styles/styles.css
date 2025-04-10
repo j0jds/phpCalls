@@ -115,3 +115,97 @@
 .textareaOC {
     min-height: 150px;
 }
+
+/* USERCALLS */
+
+.ticket-container {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.ticket-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.ticket-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.message-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #0d6efd;
+}
+
+.message-meta {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.status-badge {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.65rem;
+}
+
+.response-form {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #dee2e6;
+}
+
+/* PROFESSIONALS */
+
+.ticket-container {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.ticket-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.ticket-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.message-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #0d6efd;
+}
+
+.message-meta {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.status-badge {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.65rem;
+}
+
+.response-form {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #dee2e6;
+}
+
+.status-select {
+    max-width: 200px;
+}
